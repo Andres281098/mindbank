@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap" rel="stylesheet">
+  <title>MindBank |Cards</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <header>
+      <div class="d-flex justify-content-around">
+        <div class="d-flex justify-content-center">
+            <img src="./assets/mind.png" alt="mind_logo" id="logoHeader">
+            <h1 class="tittle text-light m-4">MindBank</h1>
+        </div>
+        <div class="d-flex justify-content-around">
+            <h2 class="text-center text-light pt-5 px-3" id="welcome">Welcome {{currentClient.nombre}}</h2>
+            <button id="signOut" class="btn btn-dark mt-5" @click.prevent="logOut()">
+                <img src="./assets/logoutClaro.png" alt="cerrar_sesión" id="logoutbtn">
+            </button>
+        </div>
+        </div>
+      <nav class="nav nav-pills nav-fill bg-dark">
+        <a class="nav-link text-light" href="./accounts.html">Accounts</a>
+        <a class="nav-link text-light active" href="#">Cards</a>
+        <a class="nav-link text-light" href="./transfers.html">Transfer</a>
+        <a class="nav-link text-light" href="./loan_application.html">Loan Application</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <div class="d-flex flex-column flex-wrap justify-content-center" id="accountCards">
+        {{separarCards}}
+        <p class="text-center text-light fst-italic fs-3 m-5" v-if="cards.length == 0">Oops! Looks like you don't have
+          any card yet. Click <a href="./create_card.html" class="text-decoration-none">here</a> to see all of our offers</p>
+        <div v-else>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-dark px-5 submitFormCards"><a href="./create_card.html" class="text-decoration-none text-light">Create Cards</a></button>
+        </div>
+          <div class="creditCards d-flex py-2 px-5">
+          <h2 class="text-light fs-1 fst-italic">Credit Cards:</h2>
+          <div v-for="card in creditCards">
+            {{ordenarCards}}
+            <div class="card-group m-5">
+              <div class="card card2">
+                <div class="flip">
+                  <div
+                    :class="{'frontGold': card.color == 'GOLD', 'frontTitanium': card.color == 'TITANIUM', 'frontSilver': card.color == 'SILVER'}">
+                    <div class="logo2"><img src="./assets/Visa-Logo-PNG-Image.png" alt="Visa"></div>
+
+                    <div class="chip3">
+                      <div class="chip-line"></div>
+                      <div class="chip-line"></div>
+                      <div class="chip-line"></div>
+                      <div class="chip-line"></div>
+                      <div class="chip-main"></div>
+                    </div>
+                    <svg class="wave" viewBox="0 3.71 26.959 38.787" width="26.959" height="38.787" fill="white">
+                      <path
+                        d="M19.709 3.719c.266.043.5.187.656.406 4.125 5.207 6.594 11.781 6.594 18.938 0 7.156-2.469 13.73-6.594 18.937-.195.336-.57.531-.957.492a.9946.9946 0 0 1-.851-.66c-.129-.367-.035-.777.246-1.051 3.855-4.867 6.156-11.023 6.156-17.718 0-6.696-2.301-12.852-6.156-17.719-.262-.317-.301-.762-.102-1.121.204-.36.602-.559 1.008-.504z">
+                      </path>
+                      <path
+                        d="M13.74 7.563c.231.039.442.164.594.343 3.508 4.059 5.625 9.371 5.625 15.157 0 5.785-2.113 11.097-5.625 15.156-.363.422-1 .472-1.422.109-.422-.363-.472-1-.109-1.422 3.211-3.711 5.156-8.551 5.156-13.843 0-5.293-1.949-10.133-5.156-13.844-.27-.309-.324-.75-.141-1.114.188-.367.578-.582.985-.542h.093z">
+                      </path>
+                      <path
+                        d="M7.584 11.438c.227.031.438.144.594.312 2.953 2.863 4.781 6.875 4.781 11.313 0 4.433-1.828 8.449-4.781 11.312-.398.387-1.035.383-1.422-.016-.387-.398-.383-1.035.016-1.421 2.582-2.504 4.187-5.993 4.187-9.875 0-3.883-1.605-7.372-4.187-9.875-.321-.282-.426-.739-.266-1.133.164-.395.559-.641.984-.617h.094zM1.178 15.531c.121.02.238.063.344.125 2.633 1.414 4.437 4.215 4.437 7.407 0 3.195-1.797 5.996-4.437 7.406-.492.258-1.102.07-1.36-.422-.257-.492-.07-1.102.422-1.359 2.012-1.075 3.375-3.176 3.375-5.625 0-2.446-1.371-4.551-3.375-5.625-.441-.204-.676-.692-.551-1.165.122-.468.567-.785 1.051-.742h.094z">
+                      </path>
+                    </svg>
+                    <div
+                      :class="{'brandGold': card.color == 'GOLD', 'brandTitanium': card.color == 'TITANIUM', 'brandSilver': card.color == 'SILVER'}">
+                      MindBank</div>
+                    <div
+                      :class="{'numberGold': card.color == 'GOLD', 'numberTitanium': card.color == 'TITANIUM', 'numberSilver': card.color == 'SILVER'}">
+                      {{card.number}}</div>
+                    <div
+                      :class="{'nameGold': card.color == 'GOLD', 'nameTitanium': card.color == 'TITANIUM', 'nameSilver': card.color == 'SILVER'}">
+                      {{toUppercase(card.cardHolder)}}</div>
+                    <div
+                      :class="{'fromGold': card.color == 'GOLD', 'fromTitanium': card.color == 'TITANIUM', 'fromSilver': card.color == 'SILVER'}">
+                      from:{{cortarFecha(card.fromDate)}}</div>
+                    <div
+                      :class="{'toGold': card.color == 'GOLD', 'toTitanium': card.color == 'TITANIUM', 'toSilver': card.color == 'SILVER'}">
+                      thru:{{cortarFecha(card.thruDate)}}</div>
+                    <div
+                      :class="{'colorGold': card.color == 'GOLD', 'colorTitanium': card.color == 'TITANIUM', 'colorSilver': card.color == 'SILVER'}">
+                      {{card.color}} {{card.type}}</div>
+                    <div class="ring"></div>
+                  </div>
+                  <div
+                    :class="{'backGold': card.color == 'GOLD', 'backTitanium': card.color == 'TITANIUM', 'backSilver': card.color == 'SILVER'}">
+                    <div class="strip-black"></div>
+                    <div class="ccv">
+                      <label
+                        :class="{'text-dark': card.color == 'SILVER', 'text-light': card.color == 'GOLD'||'TITANIUM'}">ccv</label>
+                      <div>{{card.cvv}}</div>
+                    </div>
+                    <div
+                      :class="{'terms1 text-dark': card.color === 'GOLD', 'terms2 text-light': card.color === 'TITANIUM', 'terms3 text-dark': card.color === 'SILVER'}">
+                      <p>This card is property of MindBank. Misuse is criminal offence. If found, please return to
+                        MindBank or to the nearest bank with Visa logo.</p>
+                      <p>Use of this card is subject to the credit card agreement.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-danger px-5" @click="disableCard(card.id)">Delete Card</button>
+          </div>
+        </div>
+        <div class="d-flex px-5 py-2">
+          <h2 class="text-light fs-1 fst-italic">Debit Cards:</h2>
+          <div v-for="card in debitCards">
+            {{ordenarCards}}
+            <div class="card-group m-5">
+              <div class="card card2">
+                <div class="flip">
+                  <div
+                    :class="{'frontGold': card.color == 'GOLD', 'frontTitanium': card.color == 'TITANIUM', 'frontSilver': card.color == 'SILVER'}">
+                    <div class="logo2"><img src="./assets/Visa-Logo-PNG-Image.png" alt="Visa"></div>
+
+                    <div class="chip3">
+                      <div class="chip-line"></div>
+                      <div class="chip-line"></div>
+                      <div class="chip-line"></div>
+                      <div class="chip-line"></div>
+                      <div class="chip-main"></div>
+                    </div>
+                    <svg class="wave" viewBox="0 3.71 26.959 38.787" width="26.959" height="38.787" fill="white">
+                      <path
+                        d="M19.709 3.719c.266.043.5.187.656.406 4.125 5.207 6.594 11.781 6.594 18.938 0 7.156-2.469 13.73-6.594 18.937-.195.336-.57.531-.957.492a.9946.9946 0 0 1-.851-.66c-.129-.367-.035-.777.246-1.051 3.855-4.867 6.156-11.023 6.156-17.718 0-6.696-2.301-12.852-6.156-17.719-.262-.317-.301-.762-.102-1.121.204-.36.602-.559 1.008-.504z">
+                      </path>
+                      <path
+                        d="M13.74 7.563c.231.039.442.164.594.343 3.508 4.059 5.625 9.371 5.625 15.157 0 5.785-2.113 11.097-5.625 15.156-.363.422-1 .472-1.422.109-.422-.363-.472-1-.109-1.422 3.211-3.711 5.156-8.551 5.156-13.843 0-5.293-1.949-10.133-5.156-13.844-.27-.309-.324-.75-.141-1.114.188-.367.578-.582.985-.542h.093z">
+                      </path>
+                      <path
+                        d="M7.584 11.438c.227.031.438.144.594.312 2.953 2.863 4.781 6.875 4.781 11.313 0 4.433-1.828 8.449-4.781 11.312-.398.387-1.035.383-1.422-.016-.387-.398-.383-1.035.016-1.421 2.582-2.504 4.187-5.993 4.187-9.875 0-3.883-1.605-7.372-4.187-9.875-.321-.282-.426-.739-.266-1.133.164-.395.559-.641.984-.617h.094zM1.178 15.531c.121.02.238.063.344.125 2.633 1.414 4.437 4.215 4.437 7.407 0 3.195-1.797 5.996-4.437 7.406-.492.258-1.102.07-1.36-.422-.257-.492-.07-1.102.422-1.359 2.012-1.075 3.375-3.176 3.375-5.625 0-2.446-1.371-4.551-3.375-5.625-.441-.204-.676-.692-.551-1.165.122-.468.567-.785 1.051-.742h.094z">
+                      </path>
+                    </svg>
+                    <div
+                      :class="{'brandGold': card.color == 'GOLD', 'brandTitanium': card.color == 'TITANIUM', 'brandSilver': card.color == 'SILVER'}">
+                      MindBank</div>
+                    <div
+                      :class="{'numberGold': card.color == 'GOLD', 'numberTitanium': card.color == 'TITANIUM', 'numberSilver': card.color == 'SILVER'}">
+                      {{card.number}}</div>
+                    <div
+                      :class="{'nameGold': card.color == 'GOLD', 'nameTitanium': card.color == 'TITANIUM', 'nameSilver': card.color == 'SILVER'}">
+                      {{toUppercase(card.cardHolder)}}</div>
+                    <div
+                      :class="{'fromGold': card.color == 'GOLD', 'fromTitanium': card.color == 'TITANIUM', 'fromSilver': card.color == 'SILVER'}">
+                      from:{{cortarFecha(card.fromDate)}}</div>
+                    <div
+                      :class="{'toGold': card.color == 'GOLD', 'toTitanium': card.color == 'TITANIUM', 'toSilver': card.color == 'SILVER'}">
+                      thru:{{cortarFecha(card.thruDate)}}</div>
+                    <div
+                      :class="{'colorGold': card.color == 'GOLD', 'colorTitanium': card.color == 'TITANIUM', 'colorSilver': card.color == 'SILVER'}">
+                      {{card.color}} {{card.type}}</div>
+                    <div class="ring"></div>
+                  </div>
+                  <div
+                    :class="{'backGold': card.color == 'GOLD', 'backTitanium': card.color == 'TITANIUM', 'backSilver': card.color == 'SILVER'}">
+                    <div class="strip-black"></div>
+                    <div class="ccv">
+                      <label
+                        :class="{'text-dark': card.color == 'SILVER', 'text-light': card.color == 'GOLD'||'TITANIUM'}">ccv</label>
+                      <div>{{card.cvv}}</div>
+                    </div>
+                    <div
+                      :class="{'terms1 text-dark': card.color === 'GOLD', 'terms2 text-light': card.color === 'TITANIUM', 'terms3 text-dark': card.color === 'SILVER'}">
+                      <p>This card is property of MindBank. Misuse is criminal offence. If found, please return to
+                        MindBank or to the nearest bank with Visa logo.</p>
+                      <p>Use of this card is subject to the credit card agreement.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-danger px-5" @click="disableCard(card.id)">Delete Card</button>
+          </div>
+        </div>
+
+        </div>
+      </div>
+  </div>
+  </main>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="./scripts/cards.js"></script>
+</body>
+
+</html>

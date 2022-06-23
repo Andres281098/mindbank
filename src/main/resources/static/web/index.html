@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
+    <script type='text/javascript' src=''></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Mindbank |Log In</title>
+</head>
+
+<body id="index">
+
+    <div id="app" class="w-100 d-flex justify-content-center align-items-center">
+        <div class="p-5">
+            <img src="./assets/mind.png" alt="mind_logo" id="logoIndex">
+        </div>
+        <div class="d-flex justify-content-around">
+
+            <div class="section">
+                <div class="container">
+                    <div class="row full-height justify-content-center">
+                        <div class="col-12 text-center align-self-center py-5">
+                            <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                                <div class="palabras">
+                                    <h6 class="mb-0 pb-3 text-light"><span>Log In</span><span>Sign Up</span></h6>
+                                </div>
+                                <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+                                <label for="reg-log"></label>
+                                <div class="card-3d-wrap mx-auto">
+                                    <div class="card-3d-wrapper">
+                                        <div class="card-front">
+                                            <div class="center-wrap">
+                                                <div class="section text-center">
+                                                    <h4 class="mb-4 pb-3 text-light">Log In</h4>
+                                                    <div class="form-group">
+                                                        <input type="email" name="logemail" class="form-style" v-model="clientMail"
+                                                            placeholder="Your Email" id="logemail" autocomplete="off">
+                                                        <i class="input-icon uil uil-at"></i>
+                                                    </div>
+                                                    <div class="form-group mt-2">
+                                                        <input type="password" name="logpass" class="form-style"  v-model="clientPassword"
+                                                            placeholder="Your Password" id="logpass" autocomplete="off">
+                                                        <i class="input-icon uil uil-lock-alt"></i>
+                                                    </div>
+                                                    <button @click="logIn" class="btn mt-4">Log In</button>
+
+                                                    <p class="mb-0 mt-4 text-center"><a class="link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Forgot
+                                                        your password?</a></p>
+
+
+                                                <!----------------   MODAL   ---------------------->
+                                                    <div class="modal fade w-100" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                                                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="staticBackdropLabel">Sorry :(</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <h6>This feature is unnavailable at the moment</h6>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn submitCheck" data-bs-dismiss="modal">Cancel</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <!---------------------- MODAL -------------------->
+
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-back">
+                                            <div class="center-wrap">
+                                                <div class="section text-center">
+                                                    <h4 class="mb-4 pb-3 text-light">Sign Up</h4>
+                                                    <div class="form-group mb-2">
+                                                        <input type="text" name="logname" class="form-style" v-model="clientFirstName"
+                                                            placeholder="Your First Name" id="logname"
+                                                            autocomplete="off">
+                                                        <i class="input-icon uil uil-user"></i>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <input type="text" name="logname" class="form-style" v-model="clientLastName"
+                                                            placeholder="Your Last Name"
+                                                            autocomplete="off">
+                                                        <i class="input-icon uil uil-user"></i>
+                                                    </div>
+                                                    <div class="form-group mt-2">
+                                                        <input type="email" name="logemail" class="form-style" v-model="newClientMail"
+                                                            placeholder="Your Email" id="signmail" autocomplete="off">
+                                                        <i class="input-icon uil uil-at"></i>
+                                                    </div>
+                                                    <div class="form-group mt-2">
+                                                        <input type="password" name="logpass" class="form-style" v-model="newClientPassword"
+                                                            placeholder="Your Password" id="signpass" autocomplete="off">
+                                                        <i class="input-icon uil uil-lock-alt"></i>
+                                                    </div>
+                                                    <button @click="signUp" class="btn mt-4">Sign Up</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src=" https://unpkg.com/vue@3"></script>
+    <script src="./scripts/index.js"></script>
+
+
+
+</body>
+
+</html>

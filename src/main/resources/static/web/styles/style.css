@@ -1,0 +1,866 @@
+*{
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+header{
+    background-color: rgb(27, 27, 27);
+}
+.active{
+    background-color: #4a0777!important;
+}
+.tittle{
+    font-size: 5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+} 
+#logoutbtn{
+  width: 1.5rem;
+  height: 1.5rem;
+}
+#logoHeader{
+  width: 15vh;
+}
+main {
+    /* fallback for old browsers */
+    min-height: 80.9vh;
+    background: linear-gradient(to left, #39045c, #611091);
+    font-family: "Josefin Sans", sans-serif;
+  }
+  /* Background circles start */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(#004d7c, #239bd3);
+  }
+  .circles {
+    position: absolute;
+    height: 270px;
+    width: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .circle-1 {
+    height: 180px;
+    width: 180px;
+    top: -50px;
+    left: -60px;
+  }
+  .circle-2 {
+    height: 200px;
+    width: 200px;
+    bottom: -90px;
+    right: -90px;
+    opacity: 0.8;
+  }
+  /* Background circles end */
+  
+  #accountCards{
+      padding-top: 10vh;
+  }
+  .card1 {
+    height: 270px;
+    width: 450px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.075)!important;
+    backdrop-filter: blur(30px)!important;
+    border: 2px solid rgba(255, 255, 255, 0.1)!important;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.2)!important;
+    overflow: hidden;
+  }
+  
+  .logo img,
+  .chip img,
+  .number,
+  .name,
+  .from,
+  .to,
+  .ring,
+  .accType {
+    position: absolute; /* All items inside card should have absolute position */
+  }
+  
+  .logo img {
+    top: 35px;
+    right: 40px;
+    width: 80px;
+    height: auto;
+    opacity: 0.8;
+  }
+  
+  .chip img {
+    top: 120px;
+    left: 40px;
+    width: 50px;
+    height: auto;
+    opacity: 0.8;
+  }
+  
+  .number,
+  .name,
+  .from,
+  .accType {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+  }
+  .accType{
+    top: 35px;
+    left: 40px;
+  }
+  .number {
+    left: 40px;
+    bottom: 65px;
+    font-family: "Nunito", sans-serif;
+  }
+  
+  .name {
+    font-size: 0.5rem;
+    left: 40px;
+    bottom: 10px;
+  }
+  
+  .from {
+    font-size: 2rem;
+    bottom: 20px;
+    left: 38px;
+  }
+  .btn.delete,
+  .btn.submitCheck,
+  .btn.submitForm{
+    box-shadow: none;
+  }
+  .btn.submitCheck{
+    color: white;
+    background-color: #4a0777;
+  }
+  .btn.create{
+    box-shadow: none;
+    color: white;
+  }
+  .btn.create:hover{
+    background-color: #39045c;
+    color: white;
+  }
+  
+  /* The two rings on the card background */
+  .ring {
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    background: transparent;
+    border: 50px solid rgba(255, 255, 255, 0.1);
+    bottom: -250px;
+    right: -250px;
+    box-sizing: border-box;
+  }  
+  .ring::after {
+    content: "";
+    position: absolute;
+    height: 600px;
+    width: 600px;
+    border-radius: 50%;
+    background: transparent;
+    border: 30px solid rgba(255, 255, 255, 0.1);
+    bottom: -80px;
+    right: -110px;
+    box-sizing: border-box;
+  }
+
+
+  /* CARDS */
+  .card2 {
+    height: 270px;
+    width: 450px;
+    background: none!important;
+    border: none !important;
+    backdrop-filter: blur(30px)!important;
+    overflow: hidden;
+    perspective: 1000;
+  }
+  .card2:hover .flip {
+    transform: rotateY(180deg);
+  }
+
+  /*--------------GOLD CARD------------------*/
+  .numberGold,
+.nameGold,
+.fromGold,
+.toGold,
+.colorGold,
+.brandGold
+ {
+  color: rgba(207, 207, 207, 0.8);
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+}
+.brandGold{
+  right: 20px;
+  top: 10px;
+  font-size: 2rem;
+}
+
+.numberGold {
+  font-size: 1.5rem;
+  left: 40px;
+  bottom: 90px;
+  font-family: "Nunito", sans-serif;
+}
+
+.nameGold {
+  font-size: 1.5rem;
+  left: 40px;
+  bottom: 10px;
+}
+
+.fromGold {
+  font-size: 0.75rem;
+  bottom: 60px;
+  left: 40px;
+}
+
+.toGold {
+  font-size: .75rem;
+  bottom: 60px;
+  left: 140px;
+}
+
+.colorGold{
+  bottom: 10px;
+  right: 20px;
+  font-size: .75rem;
+}
+.frontGold,
+.backGold {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 15px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  overflow: hidden;
+}
+  .frontGold {
+    transform: translateZ(0);
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+    radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  }
+  .backGold {
+    transform: rotateY(180deg) translateZ(0);
+    background: radial-gradient(ellipse farthest-corner at left bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+    radial-gradient(ellipse farthest-corner at right top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  }
+  .backGold .strip-black {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #000;
+  }
+  .backGold .ccv {
+    position: absolute;
+    top: 110px;
+    left: 0;
+    right: 0;
+    height: 36px;
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    text-align: right;
+    letter-spacing: 1px;
+    color: #000;
+    background: #fff;
+  }
+  .backGold .ccv label {
+    display: block;
+    margin: -30px 0 15px;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .backGold .terms1 {
+    position: absolute;
+    top: 135px;
+    padding: 20px;
+    font-size: 10px;
+    text-align: justify;
+  }
+  
+  /*--------------------TITANIUM CARD------------------*/
+  .numberTitanium,
+.nameTitanium,
+.fromTitanium,
+.toTitanium,
+.colorTitanium,
+.brandTitanium
+ {
+  color: rgba(232, 232, 232, 0.983);
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+}
+.brandTitanium{
+  right: 20px;
+  top: 10px;
+  font-size: 2rem;
+}
+
+.numberTitanium {
+  font-size: 1.5rem;
+  left: 40px;
+  bottom: 90px;
+  font-family: "Nunito", sans-serif;
+}
+
+.nameTitanium {
+  font-size: 1.5rem;
+  left: 40px;
+  bottom: 10px;
+}
+
+.fromTitanium {
+  font-size: 0.75rem;
+  bottom: 60px;
+  left: 40px;
+}
+
+.toTitanium {
+  font-size: .75rem;
+  bottom: 60px;
+  left: 140px;
+}
+
+.colorTitanium{
+  bottom: 10px;
+  right: 20px;
+  font-size: .75rem;
+}
+  .frontTitanium,
+.backTitanium {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 15px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  overflow: hidden;
+}
+  .frontTitanium {
+    transform: translateZ(0);
+    background: linear-gradient(to right, #111, #555)
+  }
+  .backTitanium {
+    transform: rotateY(180deg) translateZ(0);
+    background: linear-gradient(to left, #111, #555)
+  }
+  .backTitanium .strip-black {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #000;
+  }
+  .backTitanium .ccv {
+    position: absolute;
+    top: 110px;
+    left: 0;
+    right: 0;
+    height: 36px;
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    text-align: right;
+    letter-spacing: 1px;
+    color: #000;
+    background: #fff;
+  }
+  .backTitanium .ccv label {
+    display: block;
+    margin: -30px 0 15px;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .backTitanium .terms2 {
+    position: absolute;
+    top: 135px;
+    padding: 20px;
+    font-size: 10px;
+    text-align: justify;
+  }
+
+  /*-------------SILVER CARD----------*/
+  .numberSilver,
+  .nameSilver,
+  .fromSilver,
+  .toSilver,
+  .colorSilver,
+  .brandSilver
+   {
+    color: rgba(61, 61, 61, 0.8);
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+  }
+  .brandSilver{
+    right: 20px;
+    top: 10px;
+    font-size: 2rem;
+  }
+  
+  .numberSilver {
+    font-size: 1.5rem;
+    left: 40px;
+    bottom: 90px;
+    font-family: "Nunito", sans-serif;
+  }
+  
+  .nameSilver {
+    font-size: 1.5rem;
+    left: 40px;
+    bottom: 10px;
+  }
+  
+  .fromSilver {
+    font-size: 0.75rem;
+    bottom: 60px;
+    left: 40px;
+  }
+  
+  .toSilver {
+    font-size: .75rem;
+    bottom: 60px;
+    left: 140px;
+  }
+  
+  .colorSilver{
+    bottom: 10px;
+    right: 20px;
+    font-size: .75rem;
+  }
+  .frontSilver,
+.backSilver {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 15px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  overflow: hidden;
+}
+  .frontSilver {
+    transform: translateZ(0);
+    background: linear-gradient(to left, #7f8c8d, #d3d3d3)
+  }
+  .backSilver {
+    transform: rotateY(180deg) translateZ(0);
+    background: linear-gradient(to right, #7f8c8d, #d3d3d3)
+  }
+  .backSilver .strip-black {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #000;
+  }
+  .backSilver .ccv {
+    position: absolute;
+    top: 110px;
+    left: 0;
+    right: 0;
+    height: 36px;
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    text-align: right;
+    letter-spacing: 1px;
+    color: #000;
+    background: #fff;
+  }
+  .backSilver .ccv label {
+    display: block;
+    margin: -30px 0 15px;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+  .backSilver .terms3 {
+    position: absolute;
+    top: 135px;
+    padding: 20px;
+    font-size: 10px;
+    text-align: justify;
+  }
+/*-------------------------------------------*/
+
+.logo2 img,
+.numberGold,
+.numberTitanium,
+.numberSilver,
+.nameGold,
+.nameTitanium,
+.nameSilver,
+.fromGold,
+.fromTitanium,
+.fromSilver,
+.toGold,
+.toTitanium,
+.toSilver,
+.brandGold,
+.brandTitanium,
+.brandSilver,
+.wave,
+.colorGold,
+.colorTitanium,
+.colorSilver {
+  position: absolute; /* All items inside card should have absolute position */
+}
+
+.logo2 img {
+  bottom: 35px;
+  right: 20px;
+  width: 80px;
+  height: auto;
+  opacity: 0.8;
+}
+.wave{
+  top: 90px;
+  left: 110px;
+}
+.chip3 {
+  position: relative;
+  top: 90px;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 40px;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom left, #ffecc7, #d0b978);
+  overflow: hidden;
+}
+.chip3 .chip-line {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #333;
+}
+.chip3 .chip-line:nth-child(1) {
+  top: 13px;
+}
+.chip3 .chip-line:nth-child(2) {
+  top: 20px;
+}
+.chip3 .chip-line:nth-child(3) {
+  top: 28px;
+}
+.chip3 .chip-line:nth-child(4) {
+  left: 25px;
+  width: 1px;
+  height: 50px;
+}
+.chip3 .chip-main {
+  width: 20px;
+  height: 25px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  background-image: linear-gradient(to bottom left, #efdbab, #e1cb94);
+  z-index: 1;
+}
+/*Animación*/
+
+.flip {
+  width: inherit;
+  height: inherit;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  -webkit-animation: flip 2.5s ease;
+          animation: flip 2.5s ease;
+}
+@-webkit-keyframes flip {
+  0%, 100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+}
+@keyframes flip {
+  0%, 100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+}
+
+
+/* --------------------- INDEX -------------- */
+#index{
+  background: linear-gradient(to left, #39045c, #611091);
+}
+#logoIndex{
+  width: 25vw;
+}
+a {
+	cursor: pointer;
+  transition: all 200ms linear;
+}
+a:hover {
+	text-decoration: none;
+}
+.link {
+  color: #c4c3ca;
+}
+.link:hover {
+  color: #ffeba7;
+}
+p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.7;
+}
+h4 {
+  font-weight: 600;
+}
+h6 span{
+  padding: 0 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.section{
+  position: relative;
+  width: 100%;
+  display: block;
+}
+.full-height{
+  min-height: 100vh;
+}
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked){
+  position: absolute;
+  left: -9999px;
+}
+.checkbox:checked + label,
+.checkbox:not(:checked) + label{
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 60px;
+  height: 16px;
+  border-radius: 8px;
+  padding: 0;
+  margin: 10px auto;
+  cursor: pointer;
+  background-color: #ffeba7;
+}
+.checkbox:checked + label:before,
+.checkbox:not(:checked) + label:before{
+  position: absolute;
+  display: block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ffeba7;
+  font-family: 'unicons';
+  content: url("./assets/flechitaIndex.svg");
+  z-index: 20;
+  top: -10px;
+  left: -10px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 24px;
+  transition: all 0.5s ease;
+}
+.checkbox:checked + label:before {
+  transform: translateX(44px) rotate(-270deg);
+}
+.card-3d-wrap {
+  position: relative;
+  width: 440px;
+  max-width: 100%;
+  height: 400px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  margin-top: 60px;
+}
+.card-3d-wrapper {
+  width: 100%;
+  height: 100%;
+  position:absolute;    
+  top: 0;
+  left: 0;  
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transition: all 600ms ease-out; 
+}
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  background-color: #2a2b38;
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 300%;
+  position: absolute;
+  border-radius: 6px;
+  left: 0;
+  top: 0;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.card-back {
+  transform: rotateY(180deg);
+}
+.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
+  transform: rotateY(180deg);
+}
+.center-wrap{
+  position: absolute;
+  width: 100%;
+  padding: 0 35px;
+  top: 50%;
+  left: 0;
+  transform: translate3d(0, -50%, 35px) perspective(100px);
+  z-index: 20;
+  display: block;
+}
+.form-group{ 
+  position: relative;
+  display: block;
+    margin: 0;
+    padding: 0;
+}
+.form-style {
+  padding: 13px 20px;
+  padding-left: 55px;
+  height: 48px;
+  width: 100%;
+  font-weight: 500;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  outline: none;
+  color: #c4c3ca;
+  background-color: #1f2029;
+  border: none;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+  box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+}
+.form-style:focus,
+.form-style:active {
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+}
+.input-icon {
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 48px;
+  font-size: 24px;
+  line-height: 48px;
+  text-align: left;
+  color: #ffeba7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.form-group input:-ms-input-placeholder  {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input::-moz-placeholder  {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:-moz-placeholder  {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input::-webkit-input-placeholder  {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:focus:-ms-input-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:focus::-moz-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:focus:-moz-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:focus::-webkit-input-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.btn{  
+  border-radius: 4px;
+  height: 44px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  -webkit-transition : all 200ms linear;
+  transition: all 200ms linear;
+  padding: 0 30px;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+  border: none;
+  background-color: #ffeba7;
+  color: #102770;
+  box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+}
+.btn:active,
+.btn:focus{  
+  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+}
+.btn:hover{  
+  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+}
+label{
+  color: white;
+}
+.modal-backdrop{
+  position: relative;
+}

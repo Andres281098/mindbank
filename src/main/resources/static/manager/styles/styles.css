@@ -1,0 +1,72 @@
+header{
+    background-color: #8E5572;
+    height: 6rem;
+    width: 100%;
+}
+h1{
+    color:#C2B97F
+}
+#logo_banco{
+    width: 6rem;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+body{
+    background-color: #C2B97F;
+}
+
+.botones-tabla{
+    border-radius: 4rem;
+}
+
+.botones-imagen{
+    width: 1.5rem;
+}
+
+
+
+
+
+
+@media(max-width: 570px){
+
+    .div-total{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-size: .85rem;
+    }
+
+    table{
+        font-size: 0.8rem;
+    }
+
+    .botones-imagen{
+        width: 1rem;
+    }
+
+}
+
+
+@media (min-width: 571px) and (max-width: 790px){
+
+    .div-total{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+}
+
+
+@media (min-width: 791px) and (max-width: 1190px){
+
+    .div-total{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+
+@media (min-width: 1190px) and (max-width: 1919px){}
