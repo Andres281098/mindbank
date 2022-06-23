@@ -14,11 +14,11 @@ Vue.createApp({
     },
 
     created() {
-    axios.get("http://localhost:8080/api/clients").then((datos) => {
+    axios.get("/api/clients").then((datos) => {
     this.clients = datos.data;
     });
 
-    axios.get("http://localhost:8080/api/clients/current")
+    axios.get("/api/clients/current")
     .then((datos) => {
       this.currentClient = datos.data;
       this.accounts = this.currentClient.accounts.filter(account => account.disable == false);
@@ -28,12 +28,12 @@ Vue.createApp({
   methods: {
     createTransfer() {
       axios.post(
-          "http://localhost:8080/api/transactions",
+          "/api/transactions",
           `originAccount=${this.originAccount}&destinationAccount=${this.destinationAccount}&amount=${this.amount}&description=${this.description}`,
           { headers: { "content-type": "application/x-www-form-urlencoded" } }
         )
         .then(function (response) {
-          window.location.href = "http://localhost:8080/web/accounts.html";
+          window.location.href = "/web/accounts.html";
         })
         .catch(function (error) {
           console.log(error);
@@ -43,7 +43,7 @@ Vue.createApp({
     logOut(){
         axios.post('/api/logout')
             .then(function(response){
-            window.location.href = "http://localhost:8080/web/index.html";
+            window.location.href = "/web/index.html";
             })
     },
   },

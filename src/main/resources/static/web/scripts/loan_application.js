@@ -24,18 +24,18 @@ Vue.createApp({
     },
   
     created() {
-      axios.get("http://localhost:8080/api/clients")
+      axios.get("/api/clients")
           .then((datos) => {
         this.clientes = datos.data;
       });
   
-      axios.get("http://localhost:8080/api/clients/current")
+      axios.get("/api/clients/current")
           .then((datos) => {
         this.cliente1 = datos.data;
         this.accounts = this.cliente1.accounts.filter(account => account.disable == false)
           });
   
-      axios.get("http://localhost:8080/api/loans")
+      axios.get("/api/loans")
             .then((datos)=>{
               this.loans = datos.data;
               this.mortgageLoan = this.loans.filter(loan => loan.id==1);
@@ -49,7 +49,7 @@ Vue.createApp({
   
     methods: {
       createLoan() {
-        axios.post("http://localhost:8080/api/loans",
+        axios.post("/api/loans",
             {
               loanId:this.loanType,
               amount:this.loanAmount,
@@ -58,7 +58,7 @@ Vue.createApp({
             }
           )
           .then(function (response) {
-            window.location.href = "http://localhost:8080/web/accounts.html";
+            window.location.href = "/web/accounts.html";
           })
           .catch(function (error) {
             console.log(error);
@@ -88,7 +88,7 @@ Vue.createApp({
       logOut(){
         axios.post('/api/logout')
             .then(function(response){
-            window.location.href = "http://localhost:8080/web/index.html";
+            window.location.href = "/web/index.html";
             })
     },
     },

@@ -10,10 +10,10 @@ Vue.createApp({
     },
   
     created(){
-        axios.get('http://localhost:8080/api/clients/')
+        axios.get('/api/clients/')
         .then(datos => {
             this.clients = datos.data})
-        axios.get('http://localhost:8080/api/clients/current')
+        axios.get('/api/clients/current')
         .then(datos =>{
           this.currentClient = datos.data
           this.cards = this.currentClient.cards
@@ -40,17 +40,17 @@ Vue.createApp({
       logOut(){
         axios.post('/api/logout')
             .then(function(response){
-            window.location.href = "http://localhost:8080/web/index.html"; 
+            window.location.href = "/web/index.html"; 
             })
     },
 
     disableCard(id){
-      axios.patch('http://localhost:8080/api/clients/current/cards',
+      axios.patch('/api/clients/current/cards',
       `id=${id}`,
       { headers: { "content-type": "application/x-www-form-urlencoded" } }
       )
       .then(function (response) {
-        window.location.href = "http://localhost:8080/web/cards.html";
+        window.location.href = "/web/cards.html";
       })
       .catch(function (error) {
         console.log(error);

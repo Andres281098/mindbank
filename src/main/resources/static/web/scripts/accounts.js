@@ -10,10 +10,10 @@ Vue.createApp({
   },
 
   created(){
-      axios.get('http://localhost:8080/api/clients/')
+      axios.get('/api/clients/')
       .then(datos => {
           this.clients = datos.data})
-      axios.get('http://localhost:8080/api/clients/current')
+      axios.get('/api/clients/current')
       .then(datos =>{
           this.currentClient = datos.data
           this.accounts = datos.data.accounts.sort((a1,a2) => a1.id - a2.id);
@@ -35,16 +35,16 @@ Vue.createApp({
     logOut(){
       axios.post('/api/logout')
           .then(function(response){
-          window.location.href = "http://localhost:8080/web/index.html";
+          window.location.href = "/web/index.html";
           })
   },
 
   createAccount(){
-    axios.post("http://localhost:8080/api/clients/current/accounts",
+    axios.post("/api/clients/current/accounts",
     `accountType=${this.accType}`,
         { headers: { "content-type": "application/x-www-form-urlencoded" } })
         .then(function (response) {
-          window.location.href = "http://localhost:8080/web/accounts.html";
+          window.location.href = "/web/accounts.html";
         })
         .catch(function (error) {
           console.log(error);
@@ -52,12 +52,12 @@ Vue.createApp({
   },
 
   deleteAccount(id){
-    axios.patch('http://localhost:8080/api/clients/current/accounts',
+    axios.patch('/api/clients/current/accounts',
     `id=${id}`,
     { headers: { "content-type": "application/x-www-form-urlencoded" } }
     )
     .then(function (response) {
-    window.location.href = "http://localhost:8080/web/accounts.html";
+    window.location.href = "/web/accounts.html";
     })
       .catch(function (error) {
         console.log(error);
