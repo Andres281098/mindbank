@@ -3,6 +3,7 @@ package com.MindHub.homebanking.services.implement;
 import com.MindHub.homebanking.dtos.CardDTO;
 import com.MindHub.homebanking.models.Card;
 import com.MindHub.homebanking.repositories.CardRepository;
+import com.MindHub.homebanking.services.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 
 
 @Service
-public class CardServiceImplement implements com.MindHub.homebanking.services.CardService {
+public class CardServiceImplement implements CardService {
 
     @Autowired
     CardRepository cardRepository;

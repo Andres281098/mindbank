@@ -3,6 +3,7 @@ package com.MindHub.homebanking.services.implement;
 import com.MindHub.homebanking.dtos.AccountDTO;
 import com.MindHub.homebanking.models.Account;
 import com.MindHub.homebanking.repositories.AccountRepository;
+import com.MindHub.homebanking.services.AccountService;
 import com.MindHub.homebanking.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -13,7 +14,7 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 @Service
-public class AccountServiceImplement implements com.MindHub.homebanking.services.AccountService {
+public class AccountServiceImplement implements AccountService {
 
     @Autowired
     AccountRepository accountRepository;
